@@ -154,9 +154,6 @@ def exibir_metricas_e_grafico_ibovespa():
                 st.metric(label="", value=f"{variacao:.2f}%")
                 
 
-                
-
-
 def main():
     """
     Função principal que organiza o fluxo de execução do aplicativo.
@@ -168,3 +165,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+ 

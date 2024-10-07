@@ -68,15 +68,11 @@ def format_data(ticker):
                 
             # Apresentando os dados em um dataframe
             df = pd.DataFrame(data.items(), columns=['Indicador', 'Valor'])
-            # st.dataframe(df)
             mygrid = grid(5, 5, 5, 5, 5, vertical_align="top")
 
             for index, row in df.iterrows():
                c = mygrid.container()
                c.subheader(row['Indicador'], divider='red')
-            #    colA, colB = c.columns(2)
-            #    colA.metric(label='Indicador', value=row['Indicador'])
-            #    colB.metric(label='Valor', value=row['Valor'])
                c.metric(label=row['Indicador'], value=row['Valor'])
                style_metric_cards(background_color='rgba(255,255,255,0)')
         else:
