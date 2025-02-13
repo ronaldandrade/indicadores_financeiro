@@ -2,22 +2,17 @@ import streamlit as st
 import yfinance as yf
 import matplotlib.pyplot as plt
 from utils.top_day import GetTopGainers, GetTopLosers, topGainers
-from utils.btc_day import exibir_valores
+# from utils.btc_day import exibir_valores
 
 def configurar_pagina():
     """
     Configura a página inicial do Streamlit com layout 'wide'.
     """
     st.set_page_config(
-    page_title="Resumo BTG",
+    page_title="Resumo Diário",
     page_icon="💰",
     layout="wide",
-    initial_sidebar_state="expanded",
-    menu_items={
-        'Get Help': 'https://www.extremelycoolapp.com/help',
-        'Report a bug': "https://www.extremelycoolapp.com/bug",
-        'About': "# This is a header. This is an *extremely* cool app!"
-    }
+    initial_sidebar_state="expanded"
 )
     st.title('IBOVESPA')
     
@@ -79,7 +74,6 @@ def gerar_relatorio(top_gainers, top_losers):
             for ticker, price in zip(top_gainers.topGainersDay['tickers'], top_gainers.topGainersDay['prices']):
                 st.markdown(f"**{ticker}**")
                 st.markdown(f"Preço: R${price:.2f}")
-                # st.markdown("---")
         
         # Exibição das Maiores Baixas
         with col2:
@@ -87,7 +81,6 @@ def gerar_relatorio(top_gainers, top_losers):
             for ticker, price in zip(top_losers.topLosersDay['tickers'], top_losers.topLosersDay['prices']):
                 st.markdown(f"**{ticker}**")
                 st.markdown(f"Preço: R${price:.2f}")
-                # st.markdown("---")
 
 top_gainers = GetTopGainers(topGainers)
 top_losers = GetTopLosers(topGainers)
@@ -137,7 +130,7 @@ def exibir_metricas_e_grafico_ibovespa():
                 close, variacao = calcular_variacao(dados)
                 st.metric(label=f'{titulo}', value=f"R${close:.2f}")
 
-            st.metric(label='bitcoin', value=exibir_valores())
+            # st.metric(label='bitcoin', value=exibir_valores())
 
         
         with col2:

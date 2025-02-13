@@ -4,8 +4,6 @@ https://cotacao.b3.com.br/mds/api/v1/InstrumentPriceFluctuation/ibov
 """
 
 import requests
-import pandas as pd
-import streamlit as st
 
 # Obter os dados da B3
 url = 'https://cotacao.b3.com.br/mds/api/v1/InstrumentPriceFluctuation/ibov'

@@ -1,23 +1,25 @@
-'''
-Get Bitcoin Value
-http://api.coindesk.com/v1/bpi/currentprice.json
-'''
+# '''
+# Get Bitcoin Value
+# http://api.coindesk.com/v1/bpi/currentprice.json
+# '''
 
-import urllib.request, json
-import streamlit as st
-def obter_valor():
-	try:
-		url = "http://api.coindesk.com/v1/bpi/currentprice.json"
-		with urllib.request.urlopen(url) as url:
-			response = url.read()
-			data = json.loads(response.decode('utf-8'))
-			valor = float(data['bpi']['USD']['rate'].replace(",", ""))
-			return valor
-	except urllib.error.HTTPError:
-		print('URL inexistente!')
+# import urllib.request, json
+# import streamlit as st
+# def obter_valor():
+# 	try:
+# 		url = "https://cointradermonitor.com/api/pbb/v1/ticker"
+# 		with urllib.request.urlopen(url) as url:
+# 			response = url.read()
+# 			data = json.loads(response)
+# 			valor = float(data['last'])
+# 			return valor
+# 	except urllib.error.HTTPError:
+# 		print('URL inexistente!')
 
-def exibir_valores():
-	valor = obter_valor()
+# def exibir_valores():
+# 	valor = obter_valor()
 	
-	return round(valor)
-exibir_valores()
+# 	return round(valor)
+# exibir_valores()
+
+				
